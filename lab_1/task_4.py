@@ -3,7 +3,7 @@ from task_3 import draw_polygon, is_polygon_simple
 
 
 def is_polygon_convex(*points):
-    if not is_polygon_simple(points):
+    if not is_polygon_simple(*points):
         return False
     points += (points[0], points[1])
     location = determine_the_location_of_the_point(points[0], points[1], points[2])
@@ -14,6 +14,7 @@ def is_polygon_convex(*points):
 
 
 if __name__ == '__main__':
-    points = [[-1, -1], [1, -1], [1, 1], [-1, 1], [0, 0]]
+    # points = [[-1, -1], [1, -1], [1, 1], [-1, 1], [0, 0]]
+    points = [[-2, -4], [2, -3], [3, 2], [0, 4], [-5, 2], [-3, 6], [1, 0]]
     print(is_polygon_convex(*points))
     draw_polygon(*points)
