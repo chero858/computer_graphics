@@ -4,8 +4,7 @@ import sys
 import os
 
 sys.path.append(os.path.join(sys.path[0], '../lab_1/'))
-from lab_3.task_1 import location_of_the_point
-from lab_3.task_1 import slanting_product
+from lab_3.task_1 import location_of_the_point, slanting_product
 
 convex_hull = []
 
@@ -59,8 +58,8 @@ def find_hull(points, min_point, max_point):
     for point in points:
         if triangle_area(max_point, min_point, point) > triangle_area(max_point, min_point, farthest_point):
             farthest_point = point
-    index = convex_hull.index(
-        max_point)  # need to insert farthest_point between max and min points(they locate near each other)
+    index = convex_hull.index(max_point)  # need to insert farthest_point between max and min points(they locate near
+    # each other)
     convex_hull.insert(index, farthest_point)
     left_points = []
     right_points = []
@@ -83,8 +82,10 @@ def quick_hull(points):
 
 
 if __name__ == '__main__':
-    points = list(set([(random.randint(-10, 10), random.randint(-10, 10)) for i in range(20)]))
+    random.seed(14)
+    points = list(set([(random.randint(-10, 10), random.randint(-10, 10)) for i in range(13)]))
     draw_points(points)
     quick_hull(points)
     draw_polygon(convex_hull)
     plt.show()
+    print(convex_hull)

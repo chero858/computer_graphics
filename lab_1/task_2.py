@@ -12,15 +12,9 @@ def intersection_of_lines(a, b, c, d):
     det3 = slanting_product(a, b, a, c)
     det4 = slanting_product(a, b, a, d)
     if det1 == det2 == det3 == det4 == 0:
-        if (scalar_product(a, c, a, d) < 0) or (scalar_product(b, c, b, d) < 0) or \
-                (scalar_product(c, a, c, b) < 0) or (scalar_product(d, a, d, b) < 0):
-            return True
-        else:
-            return False
-    elif (det1 * det2 <= 0) and (det3 * det4 <= 0):
-        return True
-    else:
-        return False
+        return (scalar_product(a, c, a, d) < 0) or (scalar_product(b, c, b, d) < 0) or \
+                (scalar_product(c, a, c, b) < 0) or (scalar_product(d, a, d, b) < 0)
+    return (det1 * det2 <= 0) and (det3 * det4 <= 0)
 
 
 if __name__ == '__main__':
