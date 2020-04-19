@@ -8,10 +8,6 @@ from lab_3.task_1 import draw_polygons, draw_polygon, slanting_product, scalar_p
     location_of_the_point
 
 
-def vector_len(a, b):
-    return sqrt(((b[0] - a[0]) ** 2) + ((b[1] - a[1]) ** 2))
-
-
 def get_point_of_intersection(a, b, c, d):
     xdiff = (a[0] - b[0], c[0] - d[0])
     ydiff = (a[1] - b[1], c[1] - d[1])
