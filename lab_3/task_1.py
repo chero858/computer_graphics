@@ -26,6 +26,7 @@ def draw_polygons(convex_points, simple_points):
     y2.append(simple_points[0][1])
     plt.plot(x1, y1, x2, y2, marker='o')
 
+
 def draw_polygon(points):
     x = []
     y = []
@@ -34,8 +35,13 @@ def draw_polygon(points):
         y.append(point[1])
     x.append(points[0][0])
     y.append(points[0][1])
-    plt.plot(x, y, marker='o')
+    # plt.plot(x, y, marker='o', color='green')
+    plt.plot(x, y, color='green')
     # plt.show()
+
+
+def draw_points(points, color, marker):
+    plt.plot([x[0] for x in points], [y[1] for y in points], marker=marker, color=color)
 
 
 def octane(a, b):
@@ -127,7 +133,6 @@ def is_point_belong_simple_polygon(dot, points):
         s += delta
     return True if s == 8 or s == -8 else False
 
-
 # def testing(simple_points):
 #     for j in range(-1, 8):
 #         for i in range(-3, 6):
@@ -145,4 +150,3 @@ def is_point_belong_simple_polygon(dot, points):
 #     draw_polygon([-9, -2], convex_points)
 #     # testing(simple_points)
 #     plt.show()
-

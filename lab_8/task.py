@@ -1,4 +1,3 @@
-from math import sqrt
 import matplotlib.pyplot as plt
 import sys
 import os
@@ -34,16 +33,15 @@ def is_point_outer(a_start, a_end, b_end):
     return location_of_the_point(a_start, a_end, b_end) == 'right'
 
 
-def get_intersecting_lines(points_p, points_q):
-    for i, point_a in enumerate(points_p):
-        for j, point_b in enumerate(points_q):
-            if intersection_of_lines(points_p[i], points_p[(i + 1) % len(points_q)], points_q[j],
-                                     points_q[(j + 1) % len(points_q)]):
-                return i, j
+def get_lines(points_p, points_q):
+    for i, point_q in enumerate(points_q):
+            if is_point_outer(points_p[0], points_p[1], point_q) or \
+                    is_point_outer(point_q, points_q[(i + 1) % len(points_q)], points_p[1]):
+                return 0, i
 
 
 def polygon_intersection(points_p, points_q):
-    p_index, q_index = get_intersecting_lines(points_p, points_q)
+    p_index, q_index = get_lines(points_p, points_q)
     res = []
     while True:
         pq = is_aimed(points_p[p_index], points_p[(p_index + 1) % len(points_p)], points_q[q_index],

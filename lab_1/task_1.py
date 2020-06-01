@@ -22,6 +22,32 @@ def determine_the_location_of_the_point(a, b, c):
     else:
         return 'on line'
 
+import random
+
+class Point():
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.speed = (0, 0)
+
+    def set_speed(self, speed):
+        self.speed = speed
+
+    def set_random_speed(self, value, seed=0):
+        if seed != 0:
+            random.seed(seed)
+        r = random.uniform(-1, 1)
+        self.speed = (value * r, value * (r - 1) if r > 0 else value * (r + 1))
+
+    def move(self):
+        self.x += self.speed[0]
+        self.y += self.speed[1]
+
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+    def __str__(self):
+        return str(self.x) + "," + str(self.y)
 
 if __name__ == '__main__':
     points = [[1, 2], [2, 3], [3, 4]]

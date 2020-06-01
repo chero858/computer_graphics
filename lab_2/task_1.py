@@ -76,7 +76,7 @@ def location_of_the_point(a, b, c):
         return 'on line'
 
 
-def is_point_belong_polygon(dot, *points):
+def is_point_belong_polygon(dot, points):
     min, max = dimensional_test(*points)
     points += (points[0],)
     if dot[0] > max[0] or dot[0] < min[0] or dot[1] > max[1] or dot[1] < min[1]:
@@ -97,9 +97,9 @@ def is_point_belong_polygon(dot, *points):
 
 
 def main():
-    dot = [-1, 2]
+    dot = [-1, 0]
     points = [[-2, -4], [2, -3], [3, 2], [0, 4], [-5, 2], [-3, 0], [1, 0]]
-    print(is_point_belong_polygon(dot, *points))
+    print(is_point_belong_polygon(dot, points))
     draw_polygon(dot, *points)
 
 

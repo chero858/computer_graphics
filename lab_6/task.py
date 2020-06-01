@@ -9,9 +9,9 @@ from lab_3.task_1 import location_of_the_point, slanting_product
 convex_hull = []
 
 
-def draw_points(points):
+def draw_points(points, color):
     for point in points:
-        plt.plot(point[0], point[1], 'o', markersize=4, color='blue')
+        plt.plot(point[0], point[1], 'o', markersize=4, color=color)
 
 
 def draw_polygon(points):

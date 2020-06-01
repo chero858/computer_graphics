@@ -50,6 +50,7 @@ def animate_points(i):
 
 
 if __name__ == "__main__":
+    random.seed(14)
     points = list(set([(random.randint(-10, 10), random.randint(-10, 10)) for i in range(20)]))
     min_point = find_min_point(points)
     points.sort(key=polar_angle)
